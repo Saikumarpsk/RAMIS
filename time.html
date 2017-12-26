@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 <div class="white-section">
    <div class="container">
-    
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
    </div>
 </div>
 
@@ -285,6 +285,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$().UItoTop({ easingType: 'easeOutQuart' });
 		});
 	</script> 
+<script src="js/highcharts.js"></script>
+<script>
+  Highcharts.chart('container', {
+    chart: {
+       type: 'spline',
+        inverted: true
+    },
+    title: {
+        text: 'Accidents Reports '
+    },
+    subtitle: {
+       // text: 'According to the Standard Atmosphere Model'
+    },
+    xAxis: {
+        reversed: false,
+        title: {
+            enabled: true,
+            text: 'Accidents'
+        },
+        labels: {
+            formatter: function () {
+                return this.value + '';
+            }
+        },
+        maxPadding: 0.05,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Hours'
+        },
+        labels: {
+            formatter: function () {
+                return this.value + 'hr';
+            }
+        },
+        lineWidth: 2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br/>',
+        pointFormat: '{point.x} km: {point.y} hrs'
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enable: false
+            }
+        }
+    },
+    series: [{
+        name: 'Temperature',
+        data: [[0, 1], [10, 2], [20, 3], [30, 4], [40, 5], [50,6], [60, 7], [70, 8], [80, 9],[0, 10], [10, 11], [20, 12], [30, 13], [40, 14], [50,15], [60, 16], [70, 17], [80, 18], [70, 19], [80, 20], [70, 21], [80, 22], [70, 23], [80, 24]]
+    }]
+});
+
+</script>
 <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> 
 <!-- //smooth scrolling -->
 
