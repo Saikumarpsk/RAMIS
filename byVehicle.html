@@ -286,73 +286,84 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script> 
 <script src="js/highcharts.js"></script>
-
 <script>
-    
-    $(function () {
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+  // Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'By Vehicle wise Accidents'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Accidents'
+        }
 
-        $('#container').highcharts({
-            chart: {
-                panning: true
-            },
-            mapNavigation: {
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
                 enabled: true,
-                enableButtons: false
-            },
-            title: {
-                text: 'By Vehicle Time'
-            },
-            subtitle: {
-                text: document.ontouchstart === undefined ?
-                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-            },
-            xAxis: {
-                type: 'datetime'
-            },
-            yAxis: {
-                title: {
-                    text: 'Accidents Ratio'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                area: {
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    marker: {
-                        radius: 2
-                    },
-                    lineWidth: 1,
-                    states: {
-                        hover: {
-                            lineWidth: 1
-                        }
-                    },
-                    threshold: null
-                }
-            },
+                format: '{y}'
+            }
+        }
+    },
 
-            series: [{
-                type: 'area',
-                name: 'USD to EUR',
-                data: data
-            }]
-        });
-    });
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> of total<br/>'
+    },
+
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Motorised Two Wheeler',
+            y: 56,
+             drilldown: null
+            
+        }, {
+            name: 'Auto Rickshaw',
+            y: 24,
+             drilldown: null
+            
+        }, {
+            name: 'Car/Jeep/Van/Taxi',
+            y: 10,
+             drilldown: null
+           
+        }, {
+            name: 'Heavy Articulated Vehicle/Trolly',
+            y: 4,
+             drilldown: null
+          
+        }, {
+            name: 'Tempo/Tractor',
+            y: 1,
+             drilldown: null
+           
+        }, {
+            name: 'Bus/Truck/Lorry',
+            y: 20,
+             drilldown: null
+           
+        }]
+    }]
+   
 });
+
+
 </script>
 <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> 
 <!-- //smooth scrolling -->

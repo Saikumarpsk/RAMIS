@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 <div class="white-section">
    <div class="container">
-    
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
    </div>
 </div>
 
@@ -285,6 +285,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$().UItoTop({ easingType: 'easeOutQuart' });
 		});
 	</script> 
+<script src="js/highcharts.js"></script>
+<script>
+  // Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Driver Age'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis:  {categories: ['>18','18+', '20-25', '25-30', '30-40', '40-60', '60+',
+            ]},
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'No of Accidents'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    
+    
+    series: [{
+        //name: 'Population',
+       
+        data: [
+            [8],
+            [16],
+            [15],
+            [24],
+            [45],
+            [12],
+            [12],
+            
+        ],
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+            color: '#FFFFFF',
+            align: 'right',
+            format: '{point.y:.1f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    }]
+});
+
+
+</script>
 <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> 
 <!-- //smooth scrolling -->
 

@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 <div class="white-section">
    <div class="container">
-    
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
    </div>
 </div>
 
@@ -285,6 +285,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$().UItoTop({ easingType: 'easeOutQuart' });
 		});
 	</script> 
+<script src="js/highcharts.js"></script>
+<script>
+  // Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Road Type wise Accidents'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Accidents'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{y}'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> of total<br/>'
+    },
+
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Straight',
+            y: 56,
+             drilldown: null
+            
+        }, {
+            name: 'Curved',
+            y: 24,
+             drilldown: null
+            
+        }, {
+            name: 'Bridge',
+            y: 10,
+             drilldown: null
+           
+        }, {
+            name: 'Culvert',
+            y: 4,
+             drilldown: null
+          
+        }, {
+            name: 'Steep Grade cut',
+            y: 1,
+             drilldown: null
+           
+        }, {
+            name: 'Ghat/Junction',
+            y: 1,
+             drilldown: null
+           
+        }]
+    }]
+   
+});
+
+</script>
 <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> 
 <!-- //smooth scrolling -->
 
